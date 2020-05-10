@@ -13,6 +13,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
+// Random password algorithm
 function generatePassword() {
   var pref = [];
   var check = false;
@@ -30,14 +31,15 @@ function generatePassword() {
 
   randPass = "";
   for (var index = 0; index < passLength; index++) {
-
-    getRndInteger(0, pref.length - 1);
+    //Selects a random character type from the prefered options, 
+    //then randomly selects a character from that type.
     var rType = [];
     rType += pref[getRndInteger(0, pref.length - 1)];
     rType[getRndInteger(0, rType.length - 1)];
     randPass += rType[getRndInteger(0, rType.length - 1)];
 
   }
+  //The compleated random password
   return randPass;
 }
 
