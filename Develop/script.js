@@ -15,24 +15,30 @@ function writePassword() {
 }
 function generatePassword() {
   var pref = [];
-  confirm("Include lower case letters?") ? pref += charLow: null;
-  confirm("Include upper case letters?") ? pref += charUp: null;
-  confirm("Include numbers?") ? pref += num: null;
-  confirm("Include special characters?") ? pref += spVar: null;
-
+  var check = false;
+  while (check == false) {
+    confirm("Include lower case letters?") ? pref.push(charLow) : null;
+    confirm("Include upper case letters?") ? pref.push(charUp) : null;
+    confirm("Include numbers?") ? pref.push(num) : null;
+    confirm("Include special characters?") ? pref.push(spVar) : null;
+    if (pref.length != 0) check = true;
+  }
   var passLength = 0;
   while (passLength < 8 || passLength > 128) {
     passLength = prompt("Enter how long you would like your password to be: (8-128)");
   }
 
   randPass = "";
-  for (var index = 0; index <= passLength; index++) {
-    
+  for (var index = 0; index < passLength; index++) {
 
+    getRndInteger(0, pref.length - 1);
+    var rType = [];
+    rType += pref[getRndInteger(0, pref.length - 1)];
+    rType[getRndInteger(0, rType.length - 1)];
+    randPass += rType[getRndInteger(0, rType.length - 1)];
 
-    randPass += ;
-    
   }
+  return randPass;
 }
 
 function getRndInteger(min, max) {
